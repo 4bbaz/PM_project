@@ -14,11 +14,12 @@ document.title = 'Home'
     <Navbar/>
   <Carouse/>
  
-
+<div className="text">
   <div className="gr">
 
   <p>WinVinaya is the best platform to help <br></br> you enhance your skill, expands your knowledge and <br></br>prepare for techinical interviews</p>
 
+  </div>
   </div>
 
 

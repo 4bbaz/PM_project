@@ -9,11 +9,13 @@ import ViewUsers from "./components/admin/ViewUsers";
 import EditUser from "./components/admin/EditUser";
 import Admin from "./components/admin/Admin";
 import NoFound from "./components/home/NoFound";
-import Popup from "./components/Form/Popup";
+import Popup
+ from "./components/Form/Popup";
 
 import About from "./components/about/About";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import InterviewPage from "./components/interview/InterviewPage";
 
 
 function App() {
@@ -25,9 +27,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/interview" element={<FormComponent />} />
+          <Route path="/form" element={<FormComponent />} />
           <Route path="/about" element={<About />} />
           <Route path="/" element={<Login/>} />
+          <Route path="/interview" element={<InterviewPage/>} />
+          
           <Route path="/admin/edit/:id" element={<EditUser />} />
           <Route path="/admin/user/:id" element={<ViewUsers />} />
           <Route path="/admin" element={<Admin />} />

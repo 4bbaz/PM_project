@@ -2,7 +2,6 @@ import React from 'react'
 import { Stepper, Step, StepLabel, Typegraphy, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
-import { IoThumbsUpOutline } from "react-icons/io5";
 import IN from '../interview/IN'
 import Update_ac from '../interview/Update_ac'
 import Update_in from '../interview/Update_in'
@@ -12,7 +11,7 @@ import Axios from "axios";
 import Navbar from '../navbar/Navbar';
 import NavLogout from '../navbar/NavLogout';
 import Popup from './Popup'
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -46,7 +45,7 @@ const useStyles = makeStyles({
 
 function FormComponent() {
     //react hooks
-
+    const navigate = useNavigate();
     const [listOfUsers, setListOfUsers] = useState([]);
 
     const createUser = () => {
@@ -54,6 +53,7 @@ function FormComponent() {
         if(!values.pId || !values.cId || !values.cName || !values.bName || !values.tOfD || !values.domain || !values.Aptitude_round_statues || !values.HR_interview_statues || !values.Tech_interview || !values.Tech_written_statues || !values.Job_role || !values.score)
         {
             alert("Please fill with the whole requirement..."); 
+            return true;
         
         }
         else{
@@ -110,7 +110,7 @@ function FormComponent() {
     const [activeStep, setActiveStep] = useState(0);
 
     function getSteps() {
-        return ["CANDIDATE REGISTRATION", "UPDATE INTERVIEW PROCESS", "UPDATE ACADEMY PROCESS"]
+        return ["CANDIDATE REGISTRATION", "UPDATE INTERVIEW PROGRESS", "UPDATE ACADEMY PROGRESS"]
     }
 
     function handleNext() {
@@ -148,8 +148,11 @@ function FormComponent() {
                                 <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure that you filled your details corrently this form?</h3>
                                 <button type="submit" onClick={createUser} class="text-black bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                {
+                                createUser===true ? navigate("/interview") : 
                                 
                                 <Link to='/sucessful' > Yes I am sure</Link>
+                                }
                                 </button>
                                 <button onClick={last} type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, Check it</button>
                             </div>

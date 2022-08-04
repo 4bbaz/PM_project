@@ -42,7 +42,7 @@ const ViewUsers = () => {
       </div>
       
       
-      <ul className=" w-2/4 mt-5 m-auto align-items: center items-center text-xl font-medium text-gray-600  rounded-lg border  dark:bg-white  dark:text-black ">
+      <ul className=" w-2/4 mt-5 m-auto align-items: center items-center text-xl font-medium text-gray-600  rounded-lg border bg-white ">
       <h1 className=" mb-9 font-bold text-2xl ">Placement Id: {user.pId}</h1>  
       <hr className="" />
         <li className="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">Candidate ID: {user.cId}</li>

@@ -147,7 +147,7 @@ const EditUser = () => {
                         </div>
 
                         <div className="">
-                            <label className={classes.label}>Aptitude round statues</label>
+                            <label className={classes.label}>Aptitude round status</label>
                             <div class="relative">
                                 <select
                                     placeholder="Aptitude round statues: "
@@ -166,7 +166,7 @@ const EditUser = () => {
                             </div>
                         </div>
                         <div className="">
-                            <label className={classes.label}>Tech-written statues</label>
+                            <label className={classes.label}>Tech-written status</label>
                             <div class="relative">
                                 <select
                                     placeholder="Tech-written statues: "
@@ -186,7 +186,7 @@ const EditUser = () => {
                             </div>
                         </div>
                         <div className="">
-                            <label className={classes.label}>HR interview statues</label>
+                            <label className={classes.label}>HR interview status</label>
                             <div class="relative">
                                 <select
                                     placeholder="HR-interview statues: "
@@ -206,7 +206,7 @@ const EditUser = () => {
                             </div>
                         </div>
                         <div className="">
-                            <label className={classes.label}>HR interview statues</label>
+                            <label className={classes.label}>HR interview status</label>
                             <div class="relative">
                                 <select
                                     placeholder="Job role: "

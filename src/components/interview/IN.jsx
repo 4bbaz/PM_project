@@ -10,10 +10,7 @@ import Axios from "axios";
 
 const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
 
-    function handleSubmit(){
-        if(values.pId=="")
-            alert('plsssssssss')
-    }
+    
     return (
         <>
         <div className={classes.Container}>

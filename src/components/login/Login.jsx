@@ -13,9 +13,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-
-
   function Submit(e) {
 
 
@@ -31,10 +28,8 @@ const Login = () => {
      
       setEmail('');
       setPassword('');
-      navigate("/interview");
-
+      navigate("/form");
     
-
       // props.setIsLoggedin;
     }
     else if (email == "admin@gmail.com" && password == "asdf") {
@@ -45,9 +40,6 @@ const Login = () => {
         password,
       };
     
-      setEmail('');
-      setPassword('');
-
       navigate("/admin");
     }
     else {
