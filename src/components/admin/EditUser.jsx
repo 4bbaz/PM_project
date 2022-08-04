@@ -112,7 +112,7 @@ const EditUser = () => {
                                 <select
                                     placeholder="Domain: "
                                     value={domain}
-                                    id="domain"
+                                    name="domain"
                                     onChange={e => onInputChange(e)}
 
                                     className={classes.input}>

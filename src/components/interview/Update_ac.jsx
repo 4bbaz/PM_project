@@ -1,11 +1,11 @@
-import React,{useState}from 'react'
+import React, { useState } from 'react'
 import classes from './stylesT'
 import interviewSchema from '../schemas/schamas'
 import { formik, useFormik } from 'formik'
 import Axios from "axios";
 
-const Update_ac = ({values,errors,touched,handleChange,handleBlur}) => {
-    
+const Update_ac = ({ values, errors, touched, handleChange, handleBlur }) => {
+
     return (
 
         <div className={classes.Container}>
@@ -16,7 +16,7 @@ const Update_ac = ({values,errors,touched,handleChange,handleBlur}) => {
                         <label class={classes.label}>
                             Placement question paper score
                         </label>
-                        <input  
+                        <input
                             value={values.score}
                             id="score"
                             class={classes.input}
@@ -24,17 +24,17 @@ const Update_ac = ({values,errors,touched,handleChange,handleBlur}) => {
                             onBlur={handleBlur}
                             type="text" />
                         <div class="flex flex-wrap -mx-3 mb-2">
-                        {errors.score && touched.score && <p className={classes.VaildE}>{errors.score}</p>}
-                        {values.score.match(/[^1-9]/) ? <p className={classes.VaildE}>{errors.score1}</p>:""}
-                        
-                        {/* <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0"> */}
+                            {errors.score && touched.score && <p className={classes.VaildE}>{errors.score}</p>}
+                            {values.score.match(/[^0-9]/) ? <p className={classes.VaildE}>{errors.score1}</p> : ""}
 
-                    </div>
-                    {/* </div> */}
-                <div className="flex justify-between items-center py-3 ">
-                    
-                    <button className=' bg-orange-600 text-black font-bold p-3 rounded-md' type="reset">Clear</button>
-                </div>
+                            {/* <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0"> */}
+
+                        </div>
+                        {/* </div> */}
+                        <div className="flex justify-between items-center py-3 ">
+
+                            <button  className=' bg-orange-600 text-black font-bold p-3 rounded-md' type="reset">Clear</button>
+                        </div>
                     </div>
                 </div>
             </form>

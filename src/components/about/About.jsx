@@ -89,9 +89,9 @@ const About = () => {
          Contact Us
          </div>
          <div class=" text-1xl font-normal px-16 mt-5">
-    <p>NISH address : </p>
-    <p>NISH Rd, Aakkulam, </p>
-    <p>Thiruvananthapuram, Kerala 695017</p>
+    <p>Winvinaya foundation : </p>
+    <p>Banglore, Karnataka </p>
+    
     </div>
          <form  class="mt-12 text-2xl font-thin   " onSubmit={sendEmail}>
                   
