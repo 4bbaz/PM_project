@@ -32,14 +32,26 @@ app.post("/createUsers", async (req, res) => {
 });
 
 
-app.get("/user/:id", (req, res) => {
-  UserModel.findById(req.params.id, (err, result) => {
-    if (err) {
-      res.json(err);
-    } else {
-      res.json(result);
-    }
-  });
+app.get("/user/:id",async (req, res) => {
+  // UserModel.find(req.params.id, (err, result) => {
+  //   if (err) {
+  //     res.json(err);
+  //   } else {
+  //     res.json(result);
+  //   }
+  // });
+  var regex= new RegExp(req.params.id,'i')
+ 
+  let data=await UserModel.find({
+    "$or":[
+      {cName:regex},
+      {cId:regex},
+      {pId:regex}
+     
+    ]
+    
+  })
+  res.json(data);
 });
 
 app.delete("/getUsers/:id", (req, res) => {
@@ -51,6 +63,8 @@ app.delete("/getUsers/:id", (req, res) => {
     }
   });
 });
+
+
 
 
 app.put("/update/:id", (req, res) => {

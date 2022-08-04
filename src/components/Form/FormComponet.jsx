@@ -2,7 +2,6 @@ import React from 'react'
 import { Stepper, Step, StepLabel, Typegraphy, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
-import { IoThumbsUpOutline } from "react-icons/io5";
 import IN from '../interview/IN'
 import Update_ac from '../interview/Update_ac'
 import Update_in from '../interview/Update_in'
@@ -111,7 +110,7 @@ function FormComponent() {
     const [activeStep, setActiveStep] = useState(0);
 
     function getSteps() {
-        return ["CANDIDATE REGISTRATION", "UPDATE INTERVIEW PROCESS", "UPDATE ACADEMY PROCESS"]
+        return ["CANDIDATE REGISTRATION", "UPDATE INTERVIEW PROGRESS", "UPDATE ACADEMY PROGRESS"]
     }
 
     function handleNext() {
