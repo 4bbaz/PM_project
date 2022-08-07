@@ -1,7 +1,7 @@
 const useStyle = {
     Container: "bg-white container mx-auto px-11 rounded-md",
     Form: "container mx-auto px-11",
-    FormBox: "flex flex-wrap -mx-3 mb-6",
+    FormBox: "",
     heading:"text-black w-[400px] font-bold py-3 px-5 my-5 mx-auto bg-orange-500 rounded-xl text-center",
     labelWithInput: "w-full px-3",
     label:"block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",

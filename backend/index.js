@@ -54,6 +54,23 @@ app.get("/user/:id",async (req, res) => {
   // res.json(data);
 });
 
+app.get("/search/:id",async (req, res) => {
+ 
+  var regex= new RegExp(req.params.id,'i')
+ 
+  let data=await UserModel.find({
+    "$or":[
+      {cName:regex},
+      {cId:regex},
+      {pId:regex}
+     
+    ]
+   })
+  res.json(data);
+
+});
+
+
 app.delete("/getUsers/:id", (req, res) => {
   UserModel.findByIdAndDelete(req.params.id, (err, result) => {
     if (err) {

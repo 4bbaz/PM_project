@@ -23,11 +23,11 @@ const Admin = () => {
         await axios.delete(`http://localhost:5001/getUsers/${id}`);
         loadUsers();
     };
-    // const search=async id=>{
-    //     const result = await axios.get(`http://localhost:5001/user/${id}`);
-    //     setUser("");
-    //     setUser(result.data);
-    // }
+    const search=async id=>{
+        const result = await axios.get(`http://localhost:5001/search/${id}`);
+        setUser("");
+        setUser(result.data);
+    }
     
 
    
@@ -40,7 +40,7 @@ const Admin = () => {
                     className="block w-full px-4 py-2 text-purple-700 bg-white border rounded-full focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="Search..."
                 />
-                <button className="px-4 text-white bg-purple-600 rounded-full  active:bg-red-800">
+                <button className="px-4 text-white bg-purple-600 rounded-full  active:bg-red-800" onClick={search}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5"
