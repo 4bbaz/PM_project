@@ -8,7 +8,7 @@ function Popup() {
 	<div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
 		<div className="max-w-md text-center">
 			<h2 className="mb-8 font-extrabold text-5xl dark:text-gray-600">
-            Sucessfully
+            Sucessful!
 			</h2>
 			
 			<p className="mt-4 mb-8 dark:text-gray-400">You have submitted the form. You can find plenty of other things on our homepage.</p>
