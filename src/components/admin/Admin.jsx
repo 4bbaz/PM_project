@@ -52,7 +52,7 @@ const Admin = () => {
                         type="text"
                         name="pId"
                         className="block w-full px-4 py-2 text-purple-700 bg-white border rounded-full focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                        onChange={e => setPid(e.target.value)}
+                        onChange={(e) => setPid(e.target.value)}
                         placeholder="Type ID to search"
                         value={pId}
                     />
