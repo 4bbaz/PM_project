@@ -1,0 +1,8 @@
+{
+    "editor.fontFamily": "Hack",
+    "editor.inlayHints.fontFamily": "Hack",
+    "editor.inlayHints.fontSize": 18,
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 14
+}
