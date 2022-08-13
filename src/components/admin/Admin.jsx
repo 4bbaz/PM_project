@@ -9,18 +9,16 @@ import NoFound from "../home/NoFound";
 
 const Admin = () => {
     const [users, setUser] = useState([]);
-    const [pId, setPid] = useState([]);
+    const [pId, setPid] = useState();
 
     useEffect(() => {
         loadUsers();
-        setPid(pId)
     }, []);
 
 
     const loadUsers = async () => {
         const result = await axios.get("http://localhost:5001/users");
         setUser(result.data.reverse());
-        console.log(result.data);
     };
 
     const deleteUser = async id => {
@@ -33,30 +31,43 @@ const Admin = () => {
     // const res = await axios.get('https://httpbin.org/get', { params });
     // res.data.args;
 
-    const search = async ()=> {
+    const search = async () => {
         const result = await axios.get(`http://localhost:5001/search/${pId}`);
-        
+
         setUser([result.data]);
-        console.log(result.data);
-        console.log(pId);
     }
 
 
 
-
-    const Search_bar = () => {
+    const ListUsers = () => {
         return (
-            <div className="flex items-center ml-[75%]">
+            <div>
+                 <button onClick={loadUsers} className="mt-10 bg-orange-600 text-black font-bold p-3 rounded-md">List Users</button>
+            </div>
+        )
+    }
+
+
+    return (
+
+        <div className="">
+            <NavbarAdmin />,
+
+            <div className="overflow-x-auto relative">
+                <h1 className=" text-white  text-4xl font-bold">Candidates</h1>
+                <ListUsers/>
+                <div className="flex items-center ml-[75%]">
                 <div className="flex space-x-1">
                     <input
                         type="text"
-                        name="pId"
-                        className="block w-full px-4 py-2 text-purple-700 bg-white border rounded-full focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full px-4 py-2 text-black-700 bg-white border rounded-full focus:border-orange-400 focus:ring-orange-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         onChange={(e) => setPid(e.target.value)}
                         placeholder="Type ID to search"
                         value={pId}
+
                     />
-                    <button className="px-4 text-white bg-purple-600 rounded-full  active:bg-red-800" onClick={search}>
+                    
+                    <button className="px-4 text-black bg-purple-600 rounded-full  active:bg-red-800" onClick={search}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-5 h-5"
@@ -74,18 +85,6 @@ const Admin = () => {
                     </button>
                 </div>
             </div>
-        )
-    }
-
-
-    return (
-
-        <div className="">
-            <NavbarAdmin />,
-
-            <div className="overflow-x-auto relative">
-                <h1 className=" text-white  text-4xl font-bold">Candidates</h1>
-                <Search_bar />
                 <table className="w-4/5 mt-4 m-auto rounded-2xl text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
