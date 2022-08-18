@@ -118,7 +118,7 @@ const EditUser = () => {
                                     className={classes.input}>
                                     <option></option>
                                     <option>IT</option>
-                                    <option>BRA</option>
+                                    <option>BPA</option>
 
                                 </select>
                                 <div class="pointer-events-none absolute inset-y-0 right-0 left-70  flex items-center px-2   text-gray-700">

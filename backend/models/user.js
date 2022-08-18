@@ -14,5 +14,7 @@ const UserSchema = new mongoose.Schema({
   score: "",
 });
 
+
 const UserModel = mongoose.model("candidate_regs", UserSchema);
+
 module.exports = UserModel;

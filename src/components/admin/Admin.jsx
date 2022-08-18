@@ -42,7 +42,7 @@ const Admin = () => {
     const ListUsers = () => {
         return (
             <div>
-                 <button onClick={loadUsers} className="mt-10 bg-orange-600 text-black font-bold p-3 rounded-md">List Users</button>
+                 <button onClick={loadUsers} className="absolute mt-10 bg-orange-600 text-black font-bold p-3 mx-[152px] mt-[5px] rounded-md">List Users</button>
             </div>
         )
     }
@@ -54,7 +54,7 @@ const Admin = () => {
             <NavbarAdmin />,
 
             <div className="overflow-x-auto relative">
-                <h1 className=" text-white  text-4xl font-bold">Candidates</h1>
+                <h1 className=" text-white mb-[30px]  text-4xl font-bold">Candidates</h1>
                 <ListUsers/>
                 <div className="flex items-center ml-[75%]">
                 <div className="flex space-x-1">

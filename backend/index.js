@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const UserModel = require("./models/user");
-
+const LoginModel= require("./models/login");
 const cors = require("cors");
 
 const app = express();
@@ -51,34 +51,46 @@ app.get("/user/:id", async (req, res) => {
   // res.json(data);
 });
 
-// app.get("/search/:name",async (req, res) => {
+app.get("/search/:name",async (req, res) => {
+  var regex= new RegExp(req.params.name,'g','i')
+  let data=await UserModel.findOne({
+    "$or":[
+      {cName:regex},
+      {cId:regex},
+      {pId:regex},
+      {bName:regex},
+      {domain:regex},
+      {tOfD:regex}
+      ]
+   })
+  res.json(data);
 
-//   var regex= new RegExp(req.params.name,'i')
-
-//   let data=await UserModel.find({
-//     "$or":[
-//       {cName:regex},
-//       {cId:regex},
-//       {pId:regex}
-
-//     ]
-//    })
-//   res.json(data);
-
-// });
-
-app.get("/search/:pId", async (req, res) => {
-  UserModel.findOne(
-    { pId: new RegExp("^" + req.params.pId + "$", "i") },
-    function (err, result) {
-      if (err) {
-        res.json(err);
-      } else {
-        res.json(result);
-      }
-    }
-  );
 });
+
+app.post('/login',async(req,res )=> {
+  LoginModel.findById(req.params.id, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(result);
+    }
+
+})
+
+});
+
+// app.get("/search/:pId", async (req, res) => {
+//   UserModel.findOne(
+//     { pId: new RegExp("^" + req.params.pId + "$", "i") },
+//     function (err, result) {
+//       if (err) {
+//         res.json(err);
+//       } else {
+//         res.json(result);
+//       }
+//     }
+//   );
+// });
 
 app.delete("/getUsers/:id", (req, res) => {
   UserModel.findByIdAndDelete(req.params.id, (err, result) => {});
