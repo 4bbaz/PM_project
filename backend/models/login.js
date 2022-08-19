@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const LoginSchema = new mongoose.Schema({
  username:"",
- password:"",
+ password:""
 });
 
-const LoginModel = mongoose.model("login",LoginSchema);
+const LoginModel = mongoose.model("logins",LoginSchema);
 
 
-module.exports =LoginModel;
+module.exports = LoginModel;
 

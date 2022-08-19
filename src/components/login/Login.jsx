@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import NavLogout from '../navbar/NavLogout';
+import axios from "axios";
+import swale from "sweetalert";
 
 import {
   Link
@@ -13,40 +15,60 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function Submit(e) {
+
+  Submit = (values, history) => {
+    axios
+      .post("http://localhost:8080/login", values)
+      .then(res => {
+        if (res.data.result === "success") {
+          localStorage.setItem("TOKEN_KEY", res.data.token);
+          swale("Success!", res.data.message, "success")
+         .then(value  => {
+            history.push("/dashboard");
+          });
+        } else if (res.data.result === "error") {
+          swale("Error!", res.data.message, "error");
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        swale("Error!", error, "error");
+      });
+      
+  };
 
 
-    if (email == "can@gmail.com" && password == "asdf") {
+    // if (email == "can@gmail.com" && password == "asdf") {
 
-      e.preventDefault();
-      console.log(email, password);
-      const userData = {
-        email,
-        password,
-      };
-      localStorage.setItem('token-info', JSON.stringify(userData));
+    //   e.preventDefault();
+    //   console.log(email, password);
+    //   const userData = {
+    //     email,
+    //     password,
+    //   };
+    //   localStorage.setItem('token-info', JSON.stringify(userData));
      
-      setEmail('');
-      setPassword('');
-      navigate("/form");
+    //   setEmail('');
+    //   setPassword('');
+    //   navigate("/form");
     
-      // props.setIsLoggedin;
-    }
-    else if (email == "admin@gmail.com" && password == "asdf") {
-      e.preventDefault();
-      console.log(email, password);
-      const userData = {
-        email,
-        password,
-      };
+    //   // props.setIsLoggedin;
+    // }
+    // else if (email == "admin@gmail.com" && password == "asdf") {
+    //   e.preventDefault();
+    //   console.log(email, password);
+    //   const userData = {
+    //     email,
+    //     password,
+    //   };
     
-      navigate("/admin");
-    }
-    else {
-      alert('Please enter a valid email address and password ');
-    }
-    console.log(email);
-  }
+    //   navigate("/admin");
+    // }
+    // else {
+    //   alert('Please enter a valid email address and password ');
+    // }
+    // console.log(email);
+ // }
  
 
   return (
