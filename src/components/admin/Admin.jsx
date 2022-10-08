@@ -9,7 +9,7 @@ import NoFound from "../home/NoFound";
 
 const Admin = () => {
     const [users, setUser] = useState([]);
-    const [pId, setPid] = useState();
+    const [search,setSearch] = useState();
 
     useEffect(() => {
         loadUsers();
@@ -31,8 +31,8 @@ const Admin = () => {
     // const res = await axios.get('https://httpbin.org/get', { params });
     // res.data.args;
 
-    const search = async () => {
-        const result = await axios.get(`http://localhost:5001/search/${pId}`);
+    const Search = async () => {
+        const result = await axios.get(`http://localhost:5001/search/${search}`);
 
         setUser([result.data]);
     }
@@ -42,7 +42,7 @@ const Admin = () => {
     const ListUsers = () => {
         return (
             <div>
-                 <button onClick={loadUsers} className="absolute mt-10 bg-orange-600 text-black font-bold p-3 mx-[152px] mt-[5px] rounded-md">List Users</button>
+                 <button onClick={loadUsers} className="absolute mt-10 bg-orange-600 text-black font-bold p-3 mx-[152px] mt-[5px] rounded-md">Display Users</button>
             </div>
         )
     }
@@ -61,13 +61,13 @@ const Admin = () => {
                     <input
                         type="text"
                         className="block w-full px-4 py-2 text-black-700 bg-white border rounded-full focus:border-orange-400 focus:ring-orange-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                        onChange={(e) => setPid(e.target.value)}
+                        onChange={(e) => setSearch(e.target.value)}
                         placeholder="Type ID to search"
-                        value={pId}
+                        value={search}
 
                     />
                     
-                    <button className="px-4 text-black bg-purple-600 rounded-full  active:bg-red-800" onClick={search}>
+                    <button className="px-4 text-black bg-purple-600 rounded-full  active:bg-red-800" onClick={Search}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-5 h-5"
@@ -88,9 +88,9 @@ const Admin = () => {
                 <table className="w-4/5 mt-4 m-auto rounded-2xl text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" class="p-4   ">NO ID</th>
-                            <th scope="col" class="p-4   ">PLACEMENT DRIVE ID</th>
-                            <th scope="col" class="p-4  ">CANDIDATE ID</th>
+                            <th scope="col" class="p-4 ">NO ID</th>
+                            <th scope="col" class="p-4 ">PLACEMENT DRIVE ID</th>
+                            <th scope="col" class="p-4 ">CANDIDATE ID</th>
                             <th scope="col" class="p-4 ">CANDIDATE NAME</th>
                             <th scope="col" class="p-4 ">BATCH NAME</th>
                             <th scope="col" class="p-4 ">DOMAIN</th>

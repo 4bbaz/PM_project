@@ -15,7 +15,8 @@ const interviewSchema = yup.object().shape({
   HR_interview_statues: yup.string().required("Please select an option"),
   Job_role: yup.string().required("Please select an option"),
   score:yup.string().required("Placement score is required"),
-  score1:yup.string().required("Only number should be given for score")
+  score1:yup.string().required("Only number should be given for score"),
+  maxi:yup.string().required("Please give number under only 100"),
 });
 
 export default interviewSchema;

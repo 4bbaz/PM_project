@@ -1,10 +1,13 @@
 import React from 'react'
-import classes from './stylesT'
 import Accenturelogo from './Accenture-logo.png'
 import { Link } from 'react-router-dom'
+import Navbar from '../navbar/Navbar';
 
 function InterviewPage() {
   return (
+    <div>
+    <Navbar/>
+    
     <div className="justify-center bg-white p-11 mx-auto">
 
 
@@ -85,7 +88,7 @@ Accenture Overview</th>
             
     
 </div>
-
+</div>
   )
 }
 

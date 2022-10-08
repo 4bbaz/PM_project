@@ -32,7 +32,6 @@ const useStyles = makeStyles({
     complete: {
 
         padding: "50px",
-
         textAlign: "center",
         fontFamily: ""
 
@@ -53,7 +52,7 @@ function FormComponent() {
         if(!values.pId || !values.cId || !values.cName || !values.bName || !values.tOfD || !values.domain || !values.Aptitude_round_statues || !values.HR_interview_statues || !values.Tech_interview || !values.Tech_written_statues || !values.Job_role || !values.score)
         {
             alert("Please fill with the whole requirement..."); 
-            return true;
+            navigate("/form") ;
         
         }
         else{
@@ -126,14 +125,7 @@ function FormComponent() {
         setActiveStep(prevActiveStep => 0)
     }
 
-     function Alert () {
-        if(!values.pId || !values.cId || !values.cName || !values.bName || !values.tOfD || !values.domain || !values.Aptitude_round_statues || !values.HR_interview_statues || !values.Tech_interview || !values.Tech_written_statues || !values.Job_role)
-        {
-            alert("Please fill the requirement..."); 
-        
-        }
-     }
-        
+            
       
 
     const Confirm = () => {
@@ -215,7 +207,7 @@ function FormComponent() {
                                     </button> : <button class=" bg-orange-600 text-black font-bold p-3 rounded-md ml-[85px]" onClick={handlePervious}>
                                         Back
                                     </button>}
-                                    <button class=" bg-orange-600 text-black font-bold p-3 rounded-md ml-[500px]" onChange={handleChange} onClick={handleNext}>
+                                    <button class=" bg-orange-600 text-black font-bold p-3 rounded-md ml-[400px]" onChange={handleChange} onClick={handleNext}>
                                         {activeStep === steps.length - 1 ? <Button onChange={handleChange} class="bg-orange-600 text-black"> Submit </Button> : "NEXT"}
                                     </button>
 

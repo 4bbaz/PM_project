@@ -4,7 +4,6 @@ import classes from './stylesT';
 import { formik, useFormik } from 'formik'
 import interviewSchema from '../schemas/schamas';
 
-
 import Axios from "axios";
 
 
@@ -30,11 +29,13 @@ const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
                             class={classes.input}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            maxLength={10}
                             type="text" />
-
+                            
                     </div>
                     {errors.pId && touched.pId && <p className={classes.VaildE}>{errors.pId}</p>}
                     {values.pId.match(/[^0-9]/) ? <p className={classes.VaildE}>{errors.pId1}</p> : ""}
+                    
                     
             
                     <div class={classes.labelWithInput}>
@@ -47,6 +48,7 @@ const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
                             class={classes.input}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            maxLength={10}
                             type="text" />
 
                     </div>
@@ -90,7 +92,7 @@ const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 class={classes.input}>
-                                <option></option>
+                                <option>Select</option>
                                 <option>IT</option>
                                 <option>BPA</option>
 
@@ -104,8 +106,9 @@ const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
                 </div>
 
 
-                {/* <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0"> */}
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+
+                <div class={classes.labelWithInput}>
+                <label class={classes.label}>
                     Type of Disability
                 </label>
                 <div class="relative">
@@ -115,7 +118,7 @@ const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
                         id="tOfD"
                         onBlur={handleBlur}
                         class={classes.input}>
-                        <option></option>
+                        <option>Select</option>
                         <option>Deaf</option>
                         <option>Hard of hearing</option>
                         <option>hearing impaired</option>
@@ -124,14 +127,14 @@ const IN = ({ values, errors, touched, handleChange, handleBlur }) => {
                         <svg class="fill-current h-4 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                     </div>
                 </div>
-
+                </div>
                 {errors.tOfD && touched.tOfD && <p className={classes.VaildE}>{errors.tOfD}</p>}
 
-                {/* </div> */}
+            
 
                 <div className="flex justify-between items-center py-3 ">
                    
-                <button onClick={()=>this.form.reset()} className=' bg-orange-600 text-black font-bold p-3 rounded-md'>Clear</button>
+                <button onClick={()=>this.form.reset()} className=' bg-orange-600 text-black font-bold p-3 ml-[-3px] rounded-md'>Clear</button>
                 
                   
                 </div>

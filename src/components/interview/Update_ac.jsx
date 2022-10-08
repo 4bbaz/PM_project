@@ -6,6 +6,8 @@ import Axios from "axios";
 
 const Update_ac = ({ values, errors, touched, handleChange, handleBlur }) => {
 
+   
+
     return (
 
         <div className={classes.Container}>
@@ -22,10 +24,13 @@ const Update_ac = ({ values, errors, touched, handleChange, handleBlur }) => {
                             class={classes.input}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            maxLength={3}
                             type="text" />
                         <div class="flex flex-wrap -mx-3 mb-2">
                             {errors.score && touched.score && <p className={classes.VaildE}>{errors.score}</p>}
                             {values.score.match(/[^0-9]/) ? <p className={classes.VaildE}>{errors.score1}</p> : ""}
+                            {values.score>100? <p className={classes.VaildE}>{errors.maxi}</p> : ""}
+                            
 
                             {/* <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0"> */}
 
@@ -33,7 +38,7 @@ const Update_ac = ({ values, errors, touched, handleChange, handleBlur }) => {
                         {/* </div> */}
                         <div className="flex justify-between items-center py-3 ">
 
-                            <button  className=' bg-orange-600 text-black font-bold p-3 rounded-md' type="reset">Clear</button>
+                            <button  className=' bg-orange-600 text-black font-bold p-3 ml-[-14px] rounded-md' type="reset">Clear</button>
                         </div>
                     </div>
                 </div>

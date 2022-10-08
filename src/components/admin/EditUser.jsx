@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import classes from '../interview/stylesT';
 import NavbarAdmin from "./NavbarAdmin";
+import interviewSchema from '../schemas/schamas'
+import { formik, useFormik } from 'formik'
 
 const EditUser = () => {
     let navigate = useNavigate();
@@ -69,8 +71,10 @@ const EditUser = () => {
                                 placeholder="Placement Drive ID: "
                                 name="pId"
                                 value={pId}
+                                maxLength={10}
                                 onChange={e => onInputChange(e)}
                             />
+                              {pId.match(/[^0-9]/) ? <p className={classes.VaildE}>Only number should be given for placement drive ID</p> : ""}
                         </div>
                         <div className="">
                             <label className={classes.label}>Candidate ID</label>
@@ -79,9 +83,11 @@ const EditUser = () => {
                                 className={classes.input}
                                 placeholder="Candidate ID"
                                 name="cId"
+                                maxLength={10}
                                 value={cId}
                                 onChange={e => onInputChange(e)}
                             />
+                             {cId.match(/[^0-9]/) ? <p className={classes.VaildE}>Only number should be given for candidate drive ID</p> : ""}
                         </div>
                         <div className="">
                             <label className={classes.label}>Candidate Name</label>
@@ -230,12 +236,16 @@ const EditUser = () => {
                             <input
                                 type="text"
                                 className={classes.input}
-                                placeholder="Batch Name:"
+                                placeholder="Score:"
                                 name="score"
                                 value={score}
+                                maxLength={3}
                                 onChange={e => onInputChange(e)}
                             />
+                        {score>100? <p className={classes.VaildE}>Please give number under only 100</p> : ""}   
+                             
                         </div>
+                       
                         <button className="bg-orange-600 text-black font-bold p-3 rounded-md">Update User</button>
                     </form>
                 </div>
